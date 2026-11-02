@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch --env-file=.env src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "build":"npm run build"
   },
   "engines": { "node": ">=20.6" },
   "dependencies": {
