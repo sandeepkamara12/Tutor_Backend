@@ -9,7 +9,7 @@ const app = express();
 app.set('trust proxy', 1); // correct visitor IP behind a host / proxy (needed for the rate limit)
 
 app.use(helmet());
-app.use(cors({ origin: process.env.CLIENT_URL, methods: ['POST'] }));
+app.use(cors({ origin: [process.env.CLIENT_URL, process.env.LIVE_URL], methods: ['POST'] }));
 app.use(express.json({ limit: '20kb' }));
 
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
@@ -26,7 +26,7 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('MongoDB connected');
-    app.listen(port, '0.0.0.0', () => console.log(`API running on http://localhost:${port}`));
+    app.listen(port, () => console.log(`API running on http://localhost:${port}`));
   })
   .catch((err) => {
     console.error('MongoDB connection failed:', err.message);
