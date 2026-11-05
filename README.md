@@ -25,3 +25,6 @@ Test: `curl http://localhost:5000/api/health`
 
 ## 4. React
 Copy `ContactForm.jsx` into your project and add `VITE_API_URL=http://localhost:5000` to the React `.env`.
+
+
+Email is working with gmail accounts
