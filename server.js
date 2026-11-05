@@ -15,7 +15,7 @@ app.set('trust proxy', 1); // correct visitor IP behind a host / proxy (needed f
 app.use(helmet());
 
 // The browser only talks to this API from these sites: your local site and your live site.
-app.use(cors({ origin: process.env.CLIENT_URL, methods: ["GET", "POST"]}));
+app.use(cors({ origin: process.env.LIVE_URL, methods: ["GET", "POST"]}));
 app.use(express.json({ limit: "200kb" }));
 app.use(express.urlencoded({ extended: false }));
 
